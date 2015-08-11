@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :term_items
   resources :course_term_items
   resources :term_item_terms
-  resources :term_items
   resources :terms
   resources :courses
   resources :users

@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
   term_id: 
+  description: MyString
+  hours: MyString
+  minimum_grade: MyString
+  notes: MyString
 
 two:
-  name: MyString
   term_id: 
+  description: MyString
+  hours: MyString
+  minimum_grade: MyString
+  notes: MyString

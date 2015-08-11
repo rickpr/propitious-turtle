@@ -1,1 +1,1 @@
-json.extract! @term_item, :id, :name, :term_id, :created_at, :updated_at
+json.extract! @term_item, :id, :term_id, :description, :hours, :minimum_grade, :notes, :created_at, :updated_at

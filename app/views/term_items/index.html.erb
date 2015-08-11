@@ -5,8 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
       <th>Term</th>
+      <th>Description</th>
+      <th>Hours</th>
+      <th>Minimum grade</th>
+      <th>Notes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +17,11 @@
   <tbody>
     <% @term_items.each do |term_item| %>
       <tr>
-        <td><%= term_item.name %></td>
         <td><%= term_item.term %></td>
+        <td><%= term_item.description %></td>
+        <td><%= term_item.hours %></td>
+        <td><%= term_item.minimum_grade %></td>
+        <td><%= term_item.notes %></td>
         <td><%= link_to 'Show', term_item %></td>
         <td><%= link_to 'Edit', edit_term_item_path(term_item) %></td>
         <td><%= link_to 'Destroy', term_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

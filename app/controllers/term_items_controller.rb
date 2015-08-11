@@ -69,6 +69,6 @@ class TermItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def term_item_params
-      params.require(:term_item).permit(:name, :term_id)
+      params.require(:term_item).permit(:term_id, :description, :hours, :minimum_grade, :notes)
     end
 end

@@ -18,7 +18,7 @@ class TermItemsControllerTest < ActionController::TestCase
 
   test "should create term_item" do
     assert_difference('TermItem.count') do
-      post :create, term_item: { name: @term_item.name, term_id: @term_item.term_id }
+      post :create, term_item: { description: @term_item.description, hours: @term_item.hours, minimum_grade: @term_item.minimum_grade, notes: @term_item.notes, term_id: @term_item.term_id }
     end
 
     assert_redirected_to term_item_path(assigns(:term_item))
@@ -35,7 +35,7 @@ class TermItemsControllerTest < ActionController::TestCase
   end
 
   test "should update term_item" do
-    patch :update, id: @term_item, term_item: { name: @term_item.name, term_id: @term_item.term_id }
+    patch :update, id: @term_item, term_item: { description: @term_item.description, hours: @term_item.hours, minimum_grade: @term_item.minimum_grade, notes: @term_item.notes, term_id: @term_item.term_id }
     assert_redirected_to term_item_path(assigns(:term_item))
   end
 

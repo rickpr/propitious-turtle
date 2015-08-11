@@ -1,13 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @term_item.name %>
+  <strong>Term:</strong>
+  <%= @term_item.term %>
 </p>
 
 <p>
-  <strong>Term:</strong>
-  <%= @term_item.term %>
+  <strong>Description:</strong>
+  <%= @term_item.description %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @term_item.hours %>
+</p>
+
+<p>
+  <strong>Minimum grade:</strong>
+  <%= @term_item.minimum_grade %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @term_item.notes %>
 </p>
 
 <%= link_to 'Edit', edit_term_item_path(@term_item) %> |
