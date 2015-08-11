@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  college_id: 
+  acronym: MyString
+  name: MyString
+  org_code: MyString
+  url: MyString
+
+two:
+  college_id: 
+  acronym: MyString
+  name: MyString
+  org_code: MyString
+  url: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year_id: 
+  acronym: MyString
+  name: MyString
+  org_code: MyString
+  url: MyString
+
+two:
+  year_id: 
+  acronym: MyString
+  name: MyString
+  org_code: MyString
+  url: MyString

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Term Item Terms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Term item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @term_item_terms.each do |term_item_term| %>
+      <tr>
+        <td><%= term_item_term.term %></td>
+        <td><%= term_item_term.term_item %></td>
+        <td><%= link_to 'Show', term_item_term %></td>
+        <td><%= link_to 'Edit', edit_term_item_term_path(term_item_term) %></td>
+        <td><%= link_to 'Destroy', term_item_term, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Term item term', new_term_item_term_path %>
