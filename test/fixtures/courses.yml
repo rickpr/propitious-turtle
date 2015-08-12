@@ -3,7 +3,11 @@
 one:
   department_id: 
   name: MyString
+  description: MyString
+  prerequisites: MyString
 
 two:
   department_id: 
   name: MyString
+  description: MyString
+  prerequisites: MyString

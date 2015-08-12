@@ -7,6 +7,8 @@
     <tr>
       <th>Department</th>
       <th>Name</th>
+      <th>Description</th>
+      <th>Prerequisites</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +18,8 @@
       <tr>
         <td><%= course.department %></td>
         <td><%= course.name %></td>
+        <td><%= course.description %></td>
+        <td><%= course.prerequisites %></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
