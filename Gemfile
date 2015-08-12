@@ -43,7 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'rubycas-client-rails', git: 'git://github.com/rubycas/rubycas-client-rails.git'
-
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'pry-rails'
