@@ -134,7 +134,7 @@ $.fn.editableTableWidget.defaultOptions = {
 
 <p>
   <strong>Department:</strong>
-  <%= @degree_plan.department %>
+  <%= @degree_plan.department.name %>
 </p>
 
 <p>
@@ -157,11 +157,11 @@ $.fn.editableTableWidget.defaultOptions = {
       <th>Notes</th>
     </tr>
     <% term.term_items.each do |term_item| %>
-      <tr>
-        <td><%= term_item.description %></td>
-        <td><%= term_item.hours %></td>
-        <td><%= term_item.minimum_grade %></td>
-        <td><%= term_item.notes %></td>
+      <tr data-term-item="<%= term_item.id %>">
+        <td data-attribute="description"><%= term_item.description %></td>
+        <td data-attribute="hours"><%= term_item.hours %></td>
+        <td data-attribute="minimum_grade"><%= term_item.minimum_grade %></td>
+        <td data-attribute="notes"><%= term_item.notes %></td>
       </tr>
     <% end %>
   <% end %>
@@ -178,4 +178,16 @@ $.fn.editableTableWidget.defaultOptions = {
 <%= link_to 'Back', degree_plans_path %>
 <script>
 $('table').editableTableWidget();
+$('table td').on('change', function(evt, newValue) {
+  var term_item_id = evt.currentTarget.parentElement.getAttribute('data-term-item');
+  var attribute = evt.currentTarget.getAttribute('data-attribute');
+  ajax_data = {};
+  ajax_data[attribute] = newValue;
+  console.log(newValue);
+  $.ajax({
+    url: "<%= term_items_path %>" + "/" + term_item_id,
+    data: { term_item: ajax_data },
+    method: "PUT"
+  });
+});
 </script>
