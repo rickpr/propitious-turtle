@@ -45,4 +45,5 @@ end
 
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap_form'
 gem 'pry-rails'
