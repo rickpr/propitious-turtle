@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'degree_plans#index'
+
   resources :courses
   resources :term_items
   resources :course_term_items

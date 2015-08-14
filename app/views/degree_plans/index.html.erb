@@ -2,12 +2,12 @@
 
 <h1>Listing Degree Plans</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Department</th>
       <th>Name</th>
-      <th>Kind</th>
+      <th>Degree Type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,11 +15,11 @@
   <tbody>
     <% @degree_plans.each do |degree_plan| %>
       <tr>
-        <td><%= degree_plan.department %></td>
+        <td><%= degree_plan.department.name %></td>
         <td><%= degree_plan.name %></td>
         <td><%= degree_plan.kind %></td>
-        <td><%= link_to 'Show', degree_plan %></td>
-        <td><%= link_to 'Edit', edit_degree_plan_path(degree_plan) %></td>
+        <td><%= link_to 'Edit Plan', degree_plan %></td>
+        <td><%= link_to 'Change Name', edit_degree_plan_path(degree_plan) %></td>
         <td><%= link_to 'Destroy', degree_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Degree plan', new_degree_plan_path %>
+<%= link_to 'New Degree plan', new_degree_plan_path, class: 'btn btn-primary' %>

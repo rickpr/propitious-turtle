@@ -11,7 +11,7 @@
   <th colspan="4">
     <%= bootstrap_form_for TermItem.new, remote: true do |f| %>
       <%= f.hidden_field :term_id, value: term.id %>
-      <%= f.submit %>
+      <%= f.submit 'Add another Term Item' %>
     <% end %>
   </th>
 </tr>
