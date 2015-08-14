@@ -1,0 +1,14 @@
+$('#all_terms').append('<%= j render 'term', term: @term %>')
+$('table').editableTableWidget();
+$('table td').on('change', function(evt, newValue) {
+  var term_item_id = evt.currentTarget.parentElement.getAttribute('data-term-item');
+  var attribute = evt.currentTarget.getAttribute('data-attribute');
+  ajax_data = {};
+  ajax_data[attribute] = newValue;
+  $.ajax({
+    type: "PUT",
+    dataType: "js",
+    url: "<%= term_items_path %>" + "/" + term_item_id + ".js",
+    data: { term_item: ajax_data }
+  });
+});

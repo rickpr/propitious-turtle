@@ -1,0 +1,17 @@
+<tr>
+  <th>Term <%= term.number %></th>
+  <th>Hours</th>
+  <th>Minimum Grade</th>
+  <th>Notes</th>
+</tr>
+<% term.term_items.each do |term_item| %>
+  <%= render 'term_items/term_item', term_item: term_item %>
+<% end %>
+<tr id="term_<%= term.id %>">
+  <th colspan="4">
+    <%= bootstrap_form_for TermItem.new, remote: true do |f| %>
+      <%= f.hidden_field :term_id, value: term.id %>
+      <%= f.submit %>
+    <% end %>
+  </th>
+</tr>

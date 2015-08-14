@@ -130,7 +130,15 @@ $.fn.editableTableWidget.defaultOptions = {
   editor: $('<input>')
 };
 </script>
-<p id="notice"><%= notice %></p>
+<script>
+function add_term_item(term_id) {
+  $.ajax({
+    url: "<%= term_items_path %>",
+    data: { term_item: { term_id: term_id } },
+    method: "POST"
+  });
+}
+</script>
 
 <p>
   <strong>Department:</strong>
@@ -147,31 +155,17 @@ $.fn.editableTableWidget.defaultOptions = {
   <%= @degree_plan.kind %>
 </p>
 
-<table class="table table-striped">
+<table class="table table-striped" id="all_terms">
   <tbody>
   <% @degree_plan.terms.each do |term| %>
-    <tr>
-      <th>Term <%= term.number %></th>
-      <th>Hours</th>
-      <th>Minimum Grade</th>
-      <th>Notes</th>
-    </tr>
-    <% term.term_items.each do |term_item| %>
-      <tr data-term-item="<%= term_item.id %>">
-        <td data-attribute="description"><%= term_item.description %></td>
-        <td data-attribute="hours"><%= term_item.hours %></td>
-        <td data-attribute="minimum_grade"><%= term_item.minimum_grade %></td>
-        <td data-attribute="notes"><%= term_item.notes %></td>
-      </tr>
-    <% end %>
+    <%= render 'terms/term', term: term %>
   <% end %>
   </tbody>
 </table>
 
 <%= bootstrap_form_for Term.new, remote: true do |f| %>
   <%= f.hidden_field :degree_plan_id, value: @degree_plan.id %>
-  <%= f.number_field :number %>
-  <%= f.submit %>
+  <%= f.primary 'Add another Term' %>
 <% end %>
 
 <%= link_to 'Edit', edit_degree_plan_path(@degree_plan) %> |
@@ -183,11 +177,11 @@ $('table td').on('change', function(evt, newValue) {
   var attribute = evt.currentTarget.getAttribute('data-attribute');
   ajax_data = {};
   ajax_data[attribute] = newValue;
-  console.log(newValue);
   $.ajax({
-    url: "<%= term_items_path %>" + "/" + term_item_id,
-    data: { term_item: ajax_data },
-    method: "PUT"
+    type: "PUT",
+    dataType: "js",
+    url: "<%= term_items_path %>" + "/" + term_item_id + ".js",
+    data: { term_item: ajax_data }
   });
 });
 </script>

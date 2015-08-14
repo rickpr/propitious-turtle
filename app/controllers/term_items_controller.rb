@@ -30,9 +30,11 @@ class TermItemsController < ApplicationController
       if @term_item.save
         format.html { redirect_to @term_item, notice: 'Term item was successfully created.' }
         format.json { render :show, status: :created, location: @term_item }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @term_item.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -44,9 +46,11 @@ class TermItemsController < ApplicationController
       if @term_item.update(term_item_params)
         format.html { redirect_to @term_item, notice: 'Term item was successfully updated.' }
         format.json { render :show, status: :ok, location: @term_item }
+        format.js { render nothing: true }
       else
         format.html { render :edit }
         format.json { render json: @term_item.errors, status: :unprocessable_entity }
+        format.js { render nothing: true }
       end
     end
   end
