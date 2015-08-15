@@ -169,7 +169,8 @@ function add_term_item(term_id) {
 <% end %>
 
 <%= link_to 'Edit', edit_degree_plan_path(@degree_plan) %> |
-<%= link_to 'Back', degree_plans_path %>
+<%= link_to 'Back', degree_plans_path %> |
+<%= link_to 'Download CSV', csv_degree_plan_path(@degree_plan, :csv) %>
 <script>
 $('table').editableTableWidget();
 $('table td').on('change', function(evt, newValue) {

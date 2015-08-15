@@ -1,5 +1,7 @@
+require 'csv'
+
 class DegreePlansController < ApplicationController
-  before_action :set_degree_plan, only: [:show, :edit, :update, :destroy]
+  before_action :set_degree_plan, only: [:show, :edit, :update, :destroy, :csv]
 
   # GET /degree_plans
   # GET /degree_plans.json
@@ -58,6 +60,19 @@ class DegreePlansController < ApplicationController
     respond_to do |format|
       format.html { redirect_to degree_plans_url, notice: 'Degree plan was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def csv
+    @csv = CSV.generate do |csv|
+      csv << ["Term","Description","Hours","Minimum Grade","Notes"]
+      @degree_plan.terms.flat_map(&:term_items).each do |item|
+        csv << [item.term.number, item.description, item.hours, item.minimum_grade, item.notes]
+      end
+    end
+
+    respond_to do |format|
+      format.csv
     end
   end
 

@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :term_item_terms
   resources :terms
   resources :users
-  resources :degree_plans
+  resources :degree_plans do
+    member do
+      get 'csv'
+    end
+  end
   resources :departments
   resources :colleges
   resources :years
